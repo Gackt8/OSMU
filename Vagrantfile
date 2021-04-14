@@ -126,7 +126,13 @@ Vagrant.configure("2") do |config|
 	
 			#создание дисков
 			#sudo -s //права root
+			#fdisk -l //fdisk — это утилита командной строки для просмотра и управления жесткими дисками и разделами в системах Linux
 			#cat /proc/partitions //проверка существования дисков
+			#fdisk /dev/sdb //разбиение диска
+			#echo 'n, p, 1, 2048, +10G, w'
+			
+			
+			#sudo mkfs.ext4 /dev/sdb1 //
 			#dd if=/dev/sdc of=/dev/sdd bs=64K conv=noerror,sync //copy new disk
 			
 			
