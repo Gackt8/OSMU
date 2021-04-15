@@ -33,33 +33,20 @@ Vagrant.configure("2") do |config|
 			node.vm.synced_folder "d:/Projects/OSMU/VirtualBox", "/var/www"
 
 			
-			#node.vm.provision "shell", 
-			#inline: "
-			#sudo apt-get update
-			#sudo apt-get install git
-			#git init .
-			#git remote add -f origin https://github.com/Gackt8/OSMU
-			#git checkout Task3
-			#git show :task3_1.txt
-			#git remote
-			
-			#обновление локального репозитория
-			#git remote update myorigin --prune
-			#git pull
-			
 			#SSH
 			#ssh-keygen -b 4096
-			#ssh-copy-id username@remote_host
-			#ssh username@remote_host
+			#ssh-copy-id alena@172.16.1.55
+			#ssh alena@172.16.1.55
+			#sudo nano /etc/ssh/sshd_config
+			#sudo systemctl restart ssh
+			
+			#chmod 777 file1.txt //права доступа
 
 			
 			node.vm.provision "shell", 
 				
 			inline: '
-			
-			ssh-keygen -b 4096
-			ssh-copy-id username@remote_host
-			ssh username@remote_host
+		
 			
 			',
 			run: "always",
