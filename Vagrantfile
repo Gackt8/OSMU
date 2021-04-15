@@ -44,10 +44,6 @@ Vagrant.configure("2") do |config|
 			#scp root@172.16.1.54:dirlist.txt 
 			#tar -cf filename.tar file1 file2 fileN
 			
-			#mkdir current new old 
-			#tar cf myarch.tar current new old 
-
-			
 			node.vm.provision "shell", 
 				
 			inline: '
