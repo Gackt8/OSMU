@@ -150,7 +150,7 @@ Vagrant.configure("2") do |config|
 			
 			#Редактируем файл sudoers
 			#sudo visudo -f /etc/sudoers
-			#%sudo  ALL=(ALL)NOPASSWD:ALL //убираем ввод пароля
+			#%sudo   ALL=(ALL:ALL)NOPASSWD:ALL //убираем ввод пароля
 			
 			#Управление группами и пользователями 
 			#sudo groupadd mygroup //создаём группу
