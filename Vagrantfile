@@ -130,27 +130,38 @@ Vagrant.configure("2") do |config|
 			#cat /proc/partitions //проверка существования дисков
 			#fdisk /dev/sdb //разбиение диска
 			#echo 'n, p, 1, 2048, +10G, w'
-			
-			
-			#sudo mkfs.ext4 /dev/sdb1 //
+			#mkfs.ext4 /dev/sdb1
+
 			#dd if=/dev/sdc of=/dev/sdd bs=64K conv=noerror,sync //copy new disk
 			
 			
 			#для объединения в raid
 			#sudo -s
 			#sudo apt-get install mdadm
+			#sudo mdadm --examine /dev/sdb 
+			#sudo mdadm --examine /dev/sdb1 /dev/sdb2
+			#sudo mdadm --create /dev/md0 --level=mirror --raid-devices=2 /dev/sdb1 /dev/sdb2 //создание raid
+			#sudo mkfs.ext4 /dev/md0
+			#sudo mkdir /mnt/raid1
+			#sudo mount /dev/md0 /mnt/raid1
+			#df -h /mnt/raid1 //занимаемое пространство raid
+			
+			
+			
+			#Редактируем файл sudoers
+			#sudo visudo -f /etc/sudoers
+			#%sudo  ALL=(ALL)NOPASSWD:ALL //убираем ввод пароля
+			
+			#Управление группами и пользователями 
+			#sudo groupadd mygroup //создаём группу
+			#sudo adduser -m alena //создаём пользователя
+			#sudo usermod -G -a newgroup alena
+			#sudo delgroup mygroup //удаляем группу
 			
 			
 			node.vm.provision "shell", 
 			inline: "	
-
-			
-			sudo -s
-			fdisk /dev/sdb
-			
-			ls /dev/sd*
-			fdisk -l
-			
+		
 			
 			",
 			run: "always",
